@@ -8,6 +8,8 @@ A behaviour tree framework with editor.
 * extendable
 * visual-editing
 * visual-debuggable
+* platform-independent
+
 ![interface preview](editor.png)
 
 # Support Languages:
