@@ -1,2 +1,2 @@
 # bttree editor
-如何安装请查看BUILD.md
+>如何安装请查看BUILD.md
