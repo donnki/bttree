@@ -1,6 +1,6 @@
 # BtTree
 A behaviour tree framework with editor.
-![interface preview](debug.png)
+![](debug.png)
 
 # Features:
 * simple
@@ -10,7 +10,7 @@ A behaviour tree framework with editor.
 * visual-debuggable
 * platform-independent
 
-![interface preview](editor.png)
+![](editor.png)
 
 # Support Languages:
 * Lua
