@@ -1,5 +1,14 @@
 # BtTree
-A simple, fast, extendable, visual-editing, visual-debuggable behaviour tree framework... 
+A behaviour tree framework with editor.
+![interface preview](debug.png)
+
+# Features:
+* simple
+* fast
+* extendable
+* visual-editing
+* visual-debuggable
+![interface preview](editor.png)
 
 # Support Languages:
 * Lua
