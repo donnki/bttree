@@ -2,7 +2,7 @@
 A behaviour tree framework with editor.
 ![](debug.png)
 
-# Features:
+## Features:
 * simple
 * fast
 * extendable
@@ -12,15 +12,15 @@ A behaviour tree framework with editor.
 
 ![](editor.png)
 
-# Support Languages:
+## Support Languages:
 * Lua
 * to be continued...
 
-# Usage:
+## Usage:
 * edit behaviour scripts(json) with editor
 * see: lua/src/test.lua as a demo
 
-# Roadmap:
+## Roadmap:
 * more composite nodes, such as RandomSelector...
 * more decorators and editor support.
 * other languages support, maybe python or java first...
