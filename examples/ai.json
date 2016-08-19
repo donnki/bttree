@@ -1,0 +1,356 @@
+{
+  "version": "0.3.0",
+  "scope": "tree",
+  "id": "cd875fde-1a5a-4116-810d-b3368cfafd8a",
+  "title": "防御塔AI",
+  "root": "ee4f070b-b52f-4f50-84ae-4c35999b11ec",
+  "properties": {},
+  "nodes": {
+    "ee4f070b-b52f-4f50-84ae-4c35999b11ec": {
+      "id": "ee4f070b-b52f-4f50-84ae-4c35999b11ec",
+      "name": "BTParallel",
+      "title": "BTParallel",
+      "properties": {
+        "shouldEndWhenOneEnd": "true",
+        "precondition": ""
+      },
+      "display": {
+        "x": -816,
+        "y": -288
+      },
+      "children": [
+        "842198ed-a49e-4ec5-b75d-a6874d5ff07a",
+        "1ea46290-acf5-4438-b0b6-8700e028fb70"
+      ]
+    },
+    "842198ed-a49e-4ec5-b75d-a6874d5ff07a": {
+      "id": "842198ed-a49e-4ec5-b75d-a6874d5ff07a",
+      "name": "BTPrioritySelector",
+      "title": "BTPrioritySelector",
+      "properties": {
+        "precondition": ""
+      },
+      "display": {
+        "x": -612,
+        "y": -552
+      },
+      "children": [
+        "9f1b34d7-66a9-4715-8a3d-d99362a5a35f",
+        "6602deb3-e491-47a5-bc3b-0cdb8f3b0317",
+        "54a0e0b0-da89-4b3d-8743-e506d8e4f428"
+      ]
+    },
+    "9f1b34d7-66a9-4715-8a3d-d99362a5a35f": {
+      "id": "9f1b34d7-66a9-4715-8a3d-d99362a5a35f",
+      "name": "BTParallel",
+      "title": "Pal: 塔被控制",
+      "properties": {
+        "shouldEndWhenOneEnd": null,
+        "precondition": "isUnderControl"
+      },
+      "display": {
+        "x": -336,
+        "y": -684
+      },
+      "children": []
+    },
+    "6602deb3-e491-47a5-bc3b-0cdb8f3b0317": {
+      "id": "6602deb3-e491-47a5-bc3b-0cdb8f3b0317",
+      "name": "BTPrioritySelector",
+      "title": "Pri:当前有锁定单位",
+      "properties": {
+        "precondition": "targetValid"
+      },
+      "display": {
+        "x": -288,
+        "y": -492
+      },
+      "children": [
+        "9e465abf-02a2-4dad-8ae1-dd7e9ff24cdc",
+        "7ecad81b-6c13-4a1f-a603-904200fa9161"
+      ]
+    },
+    "9e465abf-02a2-4dad-8ae1-dd7e9ff24cdc": {
+      "id": "9e465abf-02a2-4dad-8ae1-dd7e9ff24cdc",
+      "name": "BTParallel",
+      "title": "Pal: 瞄准",
+      "properties": {
+        "shouldEndWhenOneEnd": null,
+        "precondition": "notAimed"
+      },
+      "display": {
+        "x": -48,
+        "y": -588
+      },
+      "children": [
+        "edadfbc7-45af-48ad-ba59-59a900663eaf",
+        "1bff277f-95b5-4812-8043-f53b7f2a3f22"
+      ]
+    },
+    "edadfbc7-45af-48ad-ba59-59a900663eaf": {
+      "id": "edadfbc7-45af-48ad-ba59-59a900663eaf",
+      "name": "BTWaitAction",
+      "title": "等待<key>时间",
+      "properties": {
+        "key": "aimTime",
+        "precondition": ""
+      },
+      "display": {
+        "x": 144,
+        "y": -672
+      }
+    },
+    "1bff277f-95b5-4812-8043-f53b7f2a3f22": {
+      "id": "1bff277f-95b5-4812-8043-f53b7f2a3f22",
+      "name": "BTRunAction",
+      "title": "执行<operation>函数",
+      "properties": {
+        "operation": "aim",
+        "precondition": ""
+      },
+      "display": {
+        "x": 144,
+        "y": -600
+      }
+    },
+    "7ecad81b-6c13-4a1f-a603-904200fa9161": {
+      "id": "7ecad81b-6c13-4a1f-a603-904200fa9161",
+      "name": "BTPrioritySelector",
+      "title": "Pri: 进入攻击",
+      "properties": {
+        "precondition": ""
+      },
+      "display": {
+        "x": -72,
+        "y": -408
+      },
+      "children": [
+        "3756adc5-3721-42ba-8e80-f8c2ea19c7a9",
+        "6cebbbac-4e37-49fc-859f-90e0c6ddd09c",
+        "be6c59d4-8ebc-4fe5-8480-6880e2a87e6b"
+      ]
+    },
+    "3756adc5-3721-42ba-8e80-f8c2ea19c7a9": {
+      "id": "3756adc5-3721-42ba-8e80-f8c2ea19c7a9",
+      "name": "BTSequence",
+      "title": "Seq: 已冷却",
+      "properties": {
+        "precondition": "isBeforeAttack",
+        "operation": ""
+      },
+      "display": {
+        "x": 132,
+        "y": -468
+      },
+      "children": [
+        "a7cf511c-21e2-42b7-b501-b7f5aeb99a96",
+        "a037b3ca-468b-4a3c-a63b-6dab1196967a",
+        "762d0a1f-302f-45b7-8b23-787edf2286af"
+      ]
+    },
+    "a037b3ca-468b-4a3c-a63b-6dab1196967a": {
+      "id": "a037b3ca-468b-4a3c-a63b-6dab1196967a",
+      "name": "BTWaitAction",
+      "title": "等待<key>时间",
+      "properties": {
+        "key": "beforeAttackDelay",
+        "precondition": ""
+      },
+      "display": {
+        "x": 384,
+        "y": -516
+      }
+    },
+    "762d0a1f-302f-45b7-8b23-787edf2286af": {
+      "id": "762d0a1f-302f-45b7-8b23-787edf2286af",
+      "name": "BTRunAction",
+      "title": "执行<operation>函数",
+      "properties": {
+        "operation": "hurtTarget",
+        "precondition": ""
+      },
+      "display": {
+        "x": 360,
+        "y": -444
+      }
+    },
+    "6cebbbac-4e37-49fc-859f-90e0c6ddd09c": {
+      "id": "6cebbbac-4e37-49fc-859f-90e0c6ddd09c",
+      "name": "BTSequence",
+      "title": "Seq: 攻击后摇",
+      "properties": {
+        "precondition": "isAfterAttack",
+        "operation": ""
+      },
+      "display": {
+        "x": 132,
+        "y": -384
+      },
+      "children": [
+        "0a1f0640-680d-48bf-8ea4-4e86dc16c5e6",
+        "7c72bcd2-9443-4288-9f48-d77e418f1ecf"
+      ]
+    },
+    "0a1f0640-680d-48bf-8ea4-4e86dc16c5e6": {
+      "id": "0a1f0640-680d-48bf-8ea4-4e86dc16c5e6",
+      "name": "BTWaitAction",
+      "title": "等待<key>时间",
+      "properties": {
+        "key": "afterAttackDelay",
+        "precondition": ""
+      },
+      "display": {
+        "x": 384,
+        "y": -360
+      }
+    },
+    "7c72bcd2-9443-4288-9f48-d77e418f1ecf": {
+      "id": "7c72bcd2-9443-4288-9f48-d77e418f1ecf",
+      "name": "BTRunAction",
+      "title": "执行<operation>函数",
+      "properties": {
+        "operation": "setAfterAttack",
+        "precondition": ""
+      },
+      "display": {
+        "x": 372,
+        "y": -276
+      }
+    },
+    "be6c59d4-8ebc-4fe5-8480-6880e2a87e6b": {
+      "id": "be6c59d4-8ebc-4fe5-8480-6880e2a87e6b",
+      "name": "BTRunAction",
+      "title": "执行<operation>函数",
+      "properties": {
+        "operation": "idle",
+        "precondition": ""
+      },
+      "display": {
+        "x": 144,
+        "y": -276
+      }
+    },
+    "1ea46290-acf5-4438-b0b6-8700e028fb70": {
+      "id": "1ea46290-acf5-4438-b0b6-8700e028fb70",
+      "name": "BTSequence",
+      "title": "Seq: 冷却时间",
+      "properties": {
+        "precondition": "",
+        "operation": ""
+      },
+      "display": {
+        "x": -660,
+        "y": 48
+      },
+      "children": [
+        "281b6c4d-0657-4bad-8414-828d0aac1fe2",
+        "f1c398a0-7766-43f5-a0e8-18c8e1073419",
+        "1b19365e-8cf4-41f2-831d-dc3ee45f7627"
+      ]
+    },
+    "281b6c4d-0657-4bad-8414-828d0aac1fe2": {
+      "id": "281b6c4d-0657-4bad-8414-828d0aac1fe2",
+      "name": "BTCondition",
+      "title": "判断：是否冷却中",
+      "properties": {
+        "precondition": "",
+        "assertFunc": "notColddown",
+        "assertValue": ""
+      },
+      "display": {
+        "x": -372,
+        "y": -60
+      }
+    },
+    "f1c398a0-7766-43f5-a0e8-18c8e1073419": {
+      "id": "f1c398a0-7766-43f5-a0e8-18c8e1073419",
+      "name": "BTWaitAction",
+      "title": "等待<key>时间",
+      "properties": {
+        "key": "atkCD",
+        "precondition": ""
+      },
+      "display": {
+        "x": -372,
+        "y": 72
+      }
+    },
+    "1b19365e-8cf4-41f2-831d-dc3ee45f7627": {
+      "id": "1b19365e-8cf4-41f2-831d-dc3ee45f7627",
+      "name": "BTRunAction",
+      "title": "执行<operation>函数",
+      "properties": {
+        "operation": "setColddown",
+        "precondition": ""
+      },
+      "display": {
+        "x": -348,
+        "y": 156
+      }
+    },
+    "54a0e0b0-da89-4b3d-8743-e506d8e4f428": {
+      "id": "54a0e0b0-da89-4b3d-8743-e506d8e4f428",
+      "name": "BTParallel",
+      "title": "Pal: 当前无锁定单位",
+      "properties": {
+        "shouldEndWhenOneEnd": null,
+        "precondition": "targetNotValid"
+      },
+      "display": {
+        "x": -228,
+        "y": -156
+      },
+      "children": [
+        "9fcba779-b88b-479d-ad51-7673732d40f8",
+        "eb0ccda9-b9fe-4e78-a33c-9ed902f510f1"
+      ]
+    },
+    "9fcba779-b88b-479d-ad51-7673732d40f8": {
+      "id": "9fcba779-b88b-479d-ad51-7673732d40f8",
+      "name": "BTRunAction",
+      "title": "执行<operation>函数",
+      "properties": {
+        "operation": "findTarget",
+        "precondition": ""
+      },
+      "display": {
+        "x": 0,
+        "y": -204
+      }
+    },
+    "eb0ccda9-b9fe-4e78-a33c-9ed902f510f1": {
+      "id": "eb0ccda9-b9fe-4e78-a33c-9ed902f510f1",
+      "name": "BTRunAction",
+      "title": "执行<operation>函数",
+      "properties": {
+        "operation": "idle",
+        "precondition": ""
+      },
+      "display": {
+        "x": 0,
+        "y": -120
+      }
+    },
+    "a7cf511c-21e2-42b7-b501-b7f5aeb99a96": {
+      "id": "a7cf511c-21e2-42b7-b501-b7f5aeb99a96",
+      "name": "BTRunAction",
+      "title": "执行<operation>函数",
+      "properties": {
+        "operation": "fire",
+        "precondition": ""
+      },
+      "display": {
+        "x": 360,
+        "y": -588
+      }
+    }
+  },
+  "display": {
+    "camera_x": 764,
+    "camera_y": 492.5,
+    "camera_z": 0.5,
+    "x": -972,
+    "y": -288
+  },
+  "custom_nodes": []
+}
