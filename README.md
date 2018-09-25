@@ -11,6 +11,7 @@ A behaviour tree framework with editor.
 * platform-independent
 
 ![](editor.png)
+![](unityeditor.png)
 
 ## Support Languages:
 * Lua
