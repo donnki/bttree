@@ -1,6 +1,8 @@
 # BtTree
 A behaviour tree framework with editor.
 ![](debug.png)
+Run in Unity Editor:
+![](unityeditor.png)
 
 ## Features:
 * simple
@@ -11,7 +13,6 @@ A behaviour tree framework with editor.
 * platform-independent
 
 ![](editor.png)
-![](unityeditor.png)
 
 ## Support Languages:
 * Lua
